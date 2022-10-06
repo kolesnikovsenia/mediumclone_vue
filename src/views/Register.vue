@@ -10,12 +10,13 @@
             >
           </p>
           VALIDATION ERRORS
-          <form @submit.prevent="onSubmit">
-            <fieldset class="input-group">
+          <form class="d-flex flex-column gap-3" @submit.prevent="onSubmit">
+            <fieldset class="form-group">
               <input
                 type="text"
                 class="form-control form-control-lg"
                 placeholder="Username"
+                v-model="username"
               />
             </fieldset>
             <fieldset class="form-group">
@@ -23,6 +24,7 @@
                 type="email"
                 class="form-control form-control-lg"
                 placeholder="Email"
+                v-model="email"
               />
             </fieldset>
             <fieldset class="form-group">
@@ -30,10 +32,13 @@
                 type="password"
                 class="form-control form-control-lg"
                 placeholder="Password"
+                v-model="password"
               />
             </fieldset>
+            <button class="btn btn-lg btn-success" :disabled="isSubmitting">
+              Sign Up
+            </button>
           </form>
-          <button class="btn btn-lg btn-success float-end">Sign Up</button>
         </div>
       </div>
     </div>
@@ -43,5 +48,32 @@
 <script>
 export default {
   name: 'McvRegister',
+  data() {
+    return {
+      email: '',
+      password: '',
+      username: '',
+    }
+  },
+  computed: {
+    isSubmitting() {
+      return this.$store.state.auth.isSubmitting
+    },
+  },
+  methods: {
+    onSubmit() {
+      console.log('submitted form')
+      this.$store
+        .dispatch('register', {
+          email: this.email,
+          username: this.username,
+          password: this.password,
+        })
+        .then((user) => {
+          console.log('successfully register user', user)
+          this.$router.push({name: 'home'})
+        })
+    },
+  },
 }
 </script>
