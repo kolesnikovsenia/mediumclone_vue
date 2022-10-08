@@ -1,7 +1,10 @@
 <template>
   <nav class="navbar navbar-light">
     <div class="container">
-      <router-link class="navbar-brand" :to="{name: home}">
+      <router-link
+        class="navbar-brand text-success fs-2 fw-bold"
+        :to="{name: home}"
+      >
         MediumClone
       </router-link>
       <ul class="nav navbar-nav d-flex flex-row gap-1 align-items-center">
@@ -49,7 +52,7 @@
             </router-link>
           </li>
         </template>
-        <template v-if="!isLoggedIn">
+        <template v-if="isAnonymous">
           <li class="nav-item">
             <router-link
               class="nav-link"
@@ -75,14 +78,16 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {getterTypes} from '@/store/modules/auth'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'McvTopBar',
   computed: {
-    ...mapState({
-      currentUser: (state) => state.auth.currentUser,
-      isLoggedIn: (state) => state.auth.isLoggedIn,
+    ...mapGetters({
+      currentUser: getterTypes.currentUser,
+      isLoggedIn: getterTypes.isLoggedIn,
+      isAnonymous: getterTypes.isAnonymous,
     }),
   },
 }

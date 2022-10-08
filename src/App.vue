@@ -1,6 +1,6 @@
 <template>
   <div>
-		<mcv-top-bar/>
+    <mcv-top-bar />
 
     <router-view />
   </div>
@@ -8,11 +8,16 @@
 
 <script>
 import McvTopBar from '@/components/TopBar'
+import {actionTypes} from '@/store/modules/auth'
 
 export default {
-	name: 'McvApp',
-	components: {
-		McvTopBar
-	},
+  name: 'McvApp',
+  components: {
+    McvTopBar,
+  },
+  mounted() {
+    console.log('hello app')
+    this.$store.dispatch(actionTypes.getCurrentUser)
+  },
 }
 </script>
