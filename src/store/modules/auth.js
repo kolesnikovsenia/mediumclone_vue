@@ -121,7 +121,7 @@ const actions = {
 				})
 		})
 	},
-	[actionTypes.currentUser](context){
+	[actionTypes.getCurrentUser](context){
 		return new Promise(resolve => {
 			context.commit(mutationTypes.getCurrentUserStart)
 			authApi

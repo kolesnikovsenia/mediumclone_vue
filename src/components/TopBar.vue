@@ -3,7 +3,7 @@
     <div class="container">
       <router-link
         class="navbar-brand text-success fs-2 fw-bold"
-        :to="{name: home}"
+        :to="{name: 'globalFeed'}"
       >
         MediumClone
       </router-link>
@@ -11,7 +11,7 @@
         <li class="nav-item">
           <router-link
             class="nav-link"
-            :to="{name: 'home'}"
+            :to="{name: 'globalFeed'}"
             exact
             active-class="active"
           >
@@ -44,11 +44,7 @@
               class="nav-link"
               :to="{name: 'userProfile', params: {slug: currentUser.username}}"
               active-class="active"
-              ><img
-                class="rounded-circle w-25 h-25"
-                :src="currentUser.image"
-              />&nbsp;
-              {{ currentUser.username }}
+              >&nbsp;{{ currentUser.username }}
             </router-link>
           </li>
         </template>
@@ -92,3 +88,6 @@ export default {
   },
 }
 </script>
+
+<!-- <img class="rounded-circle" :src="currentUser.image" />
+&nbsp; -->
