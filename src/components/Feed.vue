@@ -8,28 +8,48 @@
     <div v-if="error">Something bed happened</div>
     <div v-if="feed">
       <div
-        class="article-preview"
+        class="article-preview d-flex flex-column"
         v-for="(article, index) in feed.articles"
         :key="index"
       >
-        <div class="article-meta">
-          <router-link
-            :to="{name: 'userProfile', params: {slug: article.author.username}}"
-          >
-            <img :src="article.author.image" />
-          </router-link>
-          <div class="info">
+        <div
+          class="article-meta d-flex justify-content-between align-items-center"
+        >
+          <div class="d-flex justify-content-between g-2 align-items-center">
             <router-link
               :to="{
                 name: 'userProfile',
                 params: {slug: article.author.username},
               }"
             >
-              {{ article.author.username }}
+              <img :src="article.author.image" class="rounded-circle" />
             </router-link>
+            <div class="info">
+              <router-link
+                :to="{
+                  name: 'userProfile',
+                  params: {slug: article.author.username},
+                }"
+                class="author"
+              >
+                {{ article.author.username }}
+              </router-link>
+              <span class="date">{{ article.createdAt }}</span>
+            </div>
           </div>
+          <div>ADD TO FAVORITES</div>
         </div>
+        <router-link
+          :to="{name: 'article', params: {slug: article.slug}}"
+          class="preview-link"
+        >
+          <h1>{{ article.title }}</h1>
+          <p>{{ article.description }}</p>
+          <span>Read more...</span>
+          TAG LIST
+        </router-link>
       </div>
+      PAGINATION
     </div>
   </div>
 </template>
