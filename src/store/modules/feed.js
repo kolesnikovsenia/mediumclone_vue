@@ -5,7 +5,9 @@ const state = {
   isLoading: false,
   error: null,
 }
-
+const state {
+  sdfsdfsdf
+}
 export const mutationsTypes = {
   getFeedStart: '[feed] Get feed start',
   getFeedSuccess: '[feed] Get feed success',
