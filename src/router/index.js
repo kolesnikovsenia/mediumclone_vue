@@ -10,22 +10,22 @@ const routes = [
   {
     path: '/',
     name: 'globalFeed',
-    component: GlobalFeed
+    component: GlobalFeed,
   },
-	{
+  {
     path: '/register',
     name: 'register',
-    component: Register
+    component: Register,
   },
-	{
+  {
     path: '/login',
     name: 'login',
-    component: Login
-  }
+    component: Login,
+  },
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
 })
 
 export default router

@@ -7,16 +7,12 @@ import feed from '@/store/modules/feed'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+  state: {},
+  getters: {},
+  mutations: {},
+  actions: {},
   modules: {
-		auth,
-		feed
-  }
+    auth,
+    feed,
+  },
 })

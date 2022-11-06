@@ -21,10 +21,10 @@ export default {
   },
   computed: {
     errorMassages() {
-			return Object.keys(this.validationErrors).map(name => {
-				const massages = this.validationErrors[name].join(', ')
-				return `${name} ${massages}`
-			})
+      return Object.keys(this.validationErrors).map((name) => {
+        const massages = this.validationErrors[name].join(', ')
+        return `${name} ${massages}`
+      })
     },
   },
 }
